@@ -1,0 +1,39 @@
+var app = require("../app");
+
+var cluster = require("cluster"),
+  os = require("os");
+
+
+var bodyParser = require('body-parser')
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+// Инициализация маршрутов
+require("../lib/routes").RootRoutesInit(app);
+
+var port = 3000;
+
+app.set("port", port);
+
+
+if (cluster.isMaster) {
+  let cpus = os.cpus().length;
+
+  for (let i = 0; i < cpus-1 ; i++) cluster.fork();
+
+  cluster.on("exit", (worker, code) => {
+
+    app.listen(port, () => {
+      console.log(`Worker ${cluster.worker.id} launched`);
+    });
+
+  });
+} else {
+  app.listen(port, () => {
+    console.log(`Worker ${cluster.worker.id} | launched`);
+  });
+}
