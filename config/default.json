@@ -1,0 +1,5 @@
+{
+    "Application" : {
+        "secret_key" : "test_secret_key_default"
+    }
+  }
