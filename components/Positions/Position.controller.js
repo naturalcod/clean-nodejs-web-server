@@ -1,4 +1,4 @@
-const Controller = require("../../lib/core/classes/controlles")
+const Controller = require("../../lib/core/classes/controllers")
 const ApiError = require("../../lib/core/errors/api.error")
 const { getUsers } = require("./Position.model")
 
