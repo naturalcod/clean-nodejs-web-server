@@ -1,6 +1,6 @@
 const Controller = require("../../lib/core/classes/controllers")
 const ApiError = require("../../lib/core/errors/api.error")
-const { getUsers } = require("./Position.model")
+const { getExample } = require("./Example.model")
 
 module.exports = class Position extends Controller {
     constructor(req,res){
@@ -9,7 +9,7 @@ module.exports = class Position extends Controller {
 
     async getPositions(){
             
-            let users = await getUsers(this.queryParams);
+            let users = await getExample(this.queryParams);
             return users;
         
     }

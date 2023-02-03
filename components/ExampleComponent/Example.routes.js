@@ -1,15 +1,15 @@
 var express = require("express"),
-  PositionRouter = express.Router();
+ExampleRouter = express.Router();
 
-const positionController = require('./Example.controller');
-
-// Get Actual Positions
-PositionRouter.get('/', (req,res) => new positionController(req,res).call('getPositions'))
-
-PositionRouter.use('/Login', (req,res) => new positionController(req,res).call('getPositions'))
+const ExampleController = require('./Example.controller');
 
 
+ExampleRouter.get('/', (req,res) => new ExampleController(req,res).call('getPositions'))
 
-module.exports = PositionRouter;
+ExampleRouter.use('/Login', (req,res) => new ExampleController(req,res).call('getPositions'))
+
+
+
+module.exports = ExampleRouter;
 
 

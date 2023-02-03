@@ -1,14 +1,15 @@
 const DB = require('../../lib/db/models/index');
 
 module.exports = {
-    getUsers: async (params) => {
+    getExample: async (params) => {
 
-        return await DB.Position.findAll({
-            include: [
-                {
-                    model: DB.User
-                }
-            ]
-        });
+        return [
+            {
+                name: 'Example'
+            },
+            {
+                name: 'Tesing'
+            }
+        ]
     }
 }
