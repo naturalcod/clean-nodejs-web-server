@@ -4,11 +4,11 @@ module.exports = {
     getUsers: async (params) => {
 
         return await DB.Position.findAll({
-            // include: [
-            //     {
-            //         model: DB.User
-            //     }
-            // ]
+            include: [
+                {
+                    model: DB.User
+                }
+            ]
         });
     }
 }

@@ -1,7 +1,7 @@
 var express = require("express"),
   PositionRouter = express.Router();
 
-const positionController = require('./Position.controller');
+const positionController = require('./Example.controller');
 
 // Get Actual Positions
 PositionRouter.get('/', (req,res) => new positionController(req,res).call('getPositions'))
