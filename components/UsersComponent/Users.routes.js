@@ -4,6 +4,7 @@ UsersRouter = express.Router();
 
 
 
+const requestValidator = require("../../lib/core/middlewares/request.validator");
 // Controller
 const UsersController = require('./Users.controller');
 
@@ -12,7 +13,7 @@ const AuthMiddleware = require('../../lib/core/middlewares/auth')()
 
 
 // Array of Middlewares
-let middlewares = [AuthMiddleware]
+let middlewares = [AuthMiddleware, requestValidator]
 
 
 // Route for authentification
