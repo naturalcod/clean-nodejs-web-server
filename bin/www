@@ -4,7 +4,8 @@ var cluster = require("cluster"),
   os = require("os");
 
 
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+const rootRoutes = require("../lib/core/modules/root-routes");
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Инициализация маршрутов
-require("../lib/routes").RootRoutesInit(app);
+rootRoutes('components', app);
 
 var port = 3000;
 
