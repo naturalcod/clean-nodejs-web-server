@@ -1,4 +1,4 @@
-const Controller = require("../../lib/core/classes/controllers")
+const Controller = require("../../lib/core/classes/controller")
 
 
 module.exports = class User extends Controller {
