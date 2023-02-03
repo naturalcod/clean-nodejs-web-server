@@ -1,4 +1,4 @@
-const Controller = require("../../lib/core/classes/controllers")
+const Controller = require("../../lib/core/classes/controller")
 const ApiError = require("../../lib/core/errors/api.error")
 const { getExample } = require("./Example.model")
 
